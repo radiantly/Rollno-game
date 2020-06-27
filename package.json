@@ -1,0 +1,24 @@
+{
+  "name": "rollno-game",
+  "version": "1.0.0",
+  "description": "haha",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/radiantly/Rollno.git"
+  },
+  "author": "radiantly",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/radiantly/Rollno/issues"
+  },
+  "homepage": "https://github.com/radiantly/Rollno#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

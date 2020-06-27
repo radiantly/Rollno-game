@@ -1,3 +1,10 @@
+# VSCode settings
+.vscode
+
+# Server certs, config, and data
+secrets
+public/assets/js/data.js
+
 # Logs
 logs
 *.log

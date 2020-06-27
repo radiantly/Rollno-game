@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-size: 1.2rem;
+}
+body {
+  /*   background-color: lightseagreen; */
+  background-image: linear-gradient(to bottom right, #50a3a2, #53e3a6);
+  color: white;
+  font-family: Roboto;
+  transition: background 0.25s ease;
+}
+.container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  z-index: 2;
+}
+
+.overlay {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transition: opacity 0.25s ease;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.timer {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  font-family: "Source Code Pro", monospace;
+  transition: opacity 0.5s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+.play {
+  margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
+}
+form {
+  width: 100%;
+  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  font-size: 14px;
+  top: 100%;
+  left: 0;
+  right: 0;
+  color: black;
+  overflow: hidden;
+}
+
+.fancybutton,
+.submit,
+.pass,
+.nameinput,
+.autocomplete-items div {
+  display: block;
+  outline: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 250px;
+
+  border-radius: 3px;
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 18px;
+
+  color: white;
+  backdrop-filter: blur(5px);
+  transition-duration: 0.25s;
+}
+
+.autocomplete-items div {
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 100%;
+  padding: 7px;
+  cursor: pointer;
+}
+.fancybutton:hover,
+.submit:hover,
+.pass:hover,
+.autocomplete-items div:hover,
+.autocomplete-active {
+  background-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.nameinput {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+  width: 100%;
+  text-align: left;
+}
+
+.submit,
+.pass {
+  width: 100px;
+}
+
+.prevresult {
+  transition: opacity 0.25s ease;
+}
+@media screen and (max-width: 520px) {
+  .pass {
+    order: 2;
+    flex-grow: 1;
+  }
+  .submit {
+    order: 1;
+    flex-grow: 1;
+  }
+  .autocomplete {
+    flex-grow: 2;
+    order: 3;
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rollno Game</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Source+Code+Pro&display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="intro" class="intro">
+        <h1>The Rollno game</h1>
+        <p>To play, guess the name of the person with the given roll number.</p>
+        <button class="fancybutton play" id="playbutton">PLAY!</button>
+      </div>
+      <div id="game" class="game hidden">
+        <h2 id="rnoq">Whose roll no is 2?</h2>
+        <form autocomplete="off">
+          <div class="autocomplete" style="width: 300px;">
+            <input id="theName" type="text" placeholder="Name" class="nameinput" />
+          </div>
+          <input type="submit" class="submit" value="Submit" />
+          <input type="submit" class="pass" value="Pass" />
+        </form>
+        <h5 id="prevresult" class="prevresult">Correct!</h5>
+      </div>
+      <div id="outro" class="outro hidden">
+        <p>Great job! You scored:</p>
+        <h1 class="points">24389 Points</h1>
+        <button class="fancybutton play" id="replaybutton">PLAY AGAIN!</button>
+      </div>
+      <div class="timer" id="timer"></div>
+    </div>
+    <div class="overlay"></div>
+    <script src="https://cdn.jsdelivr.net/gh/farzher/fuzzysort@master/fuzzysort.js"></script>
+    <script src="assets/js/index.js" type="module"></script>
+  </body>
+</html>
