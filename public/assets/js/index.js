@@ -39,7 +39,7 @@ const startTimer = seconds => {
 const url = new URL(location.href);
 const playerId = url.searchParams.get("id");
 
-let points, current;
+let current;
 
 const gradients = [
   ["#E44D26", "#F16529"],
@@ -65,6 +65,26 @@ const changeBg = (color1, color2) => {
 };
 
 changeBg("#50a3a2", "#53e3a6");
+
+const player = {
+  get points() {
+    return this._points;
+  },
+  set points(value) {
+    if (!value) document.cookie = `stamp=${Date.now()};path=/`;
+    document.cookie = `points=${value};path=/`;
+    this._points = value;
+  },
+};
+
+Object.defineProperty(window, "points", {
+  get() {
+    return player.points;
+  },
+  set(value) {
+    console.error("Really? You seriously think that's gonna work?");
+  },
+});
 
 const resultDiv = document.getElementById("prevresult");
 const prepareSlide = (number, result) => {
@@ -94,7 +114,7 @@ const handleSubmit = e => {
   e.preventDefault();
   let result = `${names[current]} is #${current}.`;
   if (nameInput.value == names[current]) {
-    points += 1;
+    player.points += 1;
     result = "Correct!";
   }
   slide(result);
@@ -105,7 +125,7 @@ document.querySelector(".pass").addEventListener("click", handleSubmit);
 document.body.addEventListener("submit", handleSubmit);
 
 const startGame = () => {
-  points = 0;
+  player.points = 0;
   slide();
   game.classList.remove("hidden");
   nameInput.focus();

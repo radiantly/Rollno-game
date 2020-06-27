@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { createServer } from "https";
 import express from "express";
-
+import cookieParser from "cookie-parser";
 import telegramHookHandler, { queries } from "./modules/telegramHookHandler.js";
 import sendScore from "./modules/sendScore.js";
 
@@ -12,11 +12,20 @@ const app = express();
 
 app.use(express.static("public"));
 app.use(express.json());
+app.use(cookieParser());
 
 app.post(`/${telegramWebhookPath}`, telegramHookHandler);
 
 app.get("/highscore/:score", (req, res) => {
-  if (!(req.query.id in queries && req.params?.score < 60)) return res.sendStatus(404);
+  if (
+    !(
+      req.query.id in queries &&
+      req.params?.score < 60 &&
+      req.params.score == req.cookies.points &&
+      parseInt(req.cookies.stamp) + 65000 > Date.now()
+    )
+  )
+    return res.sendStatus(404);
   const query = queries[req.query.id];
   const options = query.message
     ? {
