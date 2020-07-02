@@ -1,8 +1,7 @@
 # VSCode settings
 .vscode
 
-# Server certs, config, and data
-secrets
+# Data
 public/assets/js/data.js
 
 # Logs
